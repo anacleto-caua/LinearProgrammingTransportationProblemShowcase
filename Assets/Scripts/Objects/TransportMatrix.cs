@@ -140,4 +140,18 @@ public class TransportMatrix
         }
     }
 
+    public float Cost()
+    {
+        float cost = 0;
+        for (int i = 0; i < SupplyNodes.Count; i++)
+        {
+            for (int j = 0; j < DemandNodes.Count; j++)
+            {
+                cost += Matrix[i, j].flow * Matrix[i, j].cost;
+            }
+        }
+
+        return cost;
+    }
+
 }
